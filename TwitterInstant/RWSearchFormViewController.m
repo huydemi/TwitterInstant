@@ -59,19 +59,20 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   self.twitterAccountType = [self.accountStore
                              accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
   
-  [[[[[self requestAccessToTwitterSignal]
-      then:^RACSignal *{
+  [[[[[[self requestAccessToTwitterSignal]
+       then:^RACSignal *{
+         @strongify(self)
+         return self.searchText.rac_textSignal;
+       }]
+      filter:^BOOL(NSString *text) {
         @strongify(self)
-        return self.searchText.rac_textSignal;
+        return [self isValidSearchText:text];
       }]
-     filter:^BOOL(NSString *text) {
+     flattenMap:^RACStream *(NSString *text) {
        @strongify(self)
-       return [self isValidSearchText:text];
+       return [self signalForSearchWithText:text];
      }]
-    flattenMap:^RACStream *(NSString *text) {
-      @strongify(self)
-      return [self signalForSearchWithText:text];
-    }]
+    deliverOn:[RACScheduler mainThreadScheduler]]
    subscribeNext:^(id x) {
      NSLog(@"%@", x);
    } error:^(NSError *error) {
