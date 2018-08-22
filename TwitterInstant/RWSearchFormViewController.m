@@ -61,15 +61,16 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   self.twitterAccountType = [self.accountStore
                              accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
   
-  [[[[[[self requestAccessToTwitterSignal]
-       then:^RACSignal *{
+  [[[[[[[self requestAccessToTwitterSignal]
+        then:^RACSignal *{
+          @strongify(self)
+          return self.searchText.rac_textSignal;
+        }]
+       filter:^BOOL(NSString *text) {
          @strongify(self)
-         return self.searchText.rac_textSignal;
+         return [self isValidSearchText:text];
        }]
-      filter:^BOOL(NSString *text) {
-        @strongify(self)
-        return [self isValidSearchText:text];
-      }]
+      throttle:0.5]
      flattenMap:^RACStream *(NSString *text) {
        @strongify(self)
        return [self signalForSearchWithText:text];
@@ -84,7 +85,6 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
    } error:^(NSError *error) {
      NSLog(@"An error occurred: %@", error);
    }];
-  
 }
 
 - (BOOL)isValidSearchText:(NSString *)text {
