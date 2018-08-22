@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BA07165212D51560033DE2E /* libPods-TwitterInstant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA07164212D51560033DE2E /* libPods-TwitterInstant.a */; };
+		6BA07167212D51940033DE2E /* libReactiveCocoa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA07166212D51940033DE2E /* libReactiveCocoa.a */; };
 		721C0011184D33AC0026A576 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721C0010184D33AC0026A576 /* Foundation.framework */; };
 		721C0013184D33AC0026A576 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721C0012184D33AC0026A576 /* CoreGraphics.framework */; };
 		721C0015184D33AC0026A576 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 721C0014184D33AC0026A576 /* UIKit.framework */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		4E7277F183EEEAA42BC682C2 /* Pods-TwitterInstant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterInstant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterInstant/Pods-TwitterInstant.debug.xcconfig"; sourceTree = "<group>"; };
+		6BA07164212D51560033DE2E /* libPods-TwitterInstant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-TwitterInstant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BA07166212D51940033DE2E /* libReactiveCocoa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReactiveCocoa.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		721C000D184D33AC0026A576 /* TwitterInstant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterInstant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		721C0010184D33AC0026A576 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		721C0012184D33AC0026A576 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA07167212D51940033DE2E /* libReactiveCocoa.a in Frameworks */,
+				6BA07165212D51560033DE2E /* libPods-TwitterInstant.a in Frameworks */,
 				721C0051184E43BB0026A576 /* Social.framework in Frameworks */,
 				721C004F184E43B50026A576 /* Accounts.framework in Frameworks */,
 				721C0013184D33AC0026A576 /* CoreGraphics.framework in Frameworks */,
@@ -101,6 +107,8 @@
 		721C000F184D33AC0026A576 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BA07166212D51940033DE2E /* libReactiveCocoa.a */,
+				6BA07164212D51560033DE2E /* libPods-TwitterInstant.a */,
 				721C0050184E43BB0026A576 /* Social.framework */,
 				721C004E184E43B50026A576 /* Accounts.framework */,
 				721C0010184D33AC0026A576 /* Foundation.framework */,
